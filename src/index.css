@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo+Narrow:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-steel-50 text-steel-950 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-safety-500/30 text-steel-950;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-safety-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-safety-500 text-white shadow-sm hover:bg-safety-600 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:bg-safety-700;
+  }
+  .btn-ghost {
+    @apply btn bg-white text-steel-700 border border-steel-200 hover:border-steel-300 hover:bg-steel-50;
+  }
+  .btn-dark {
+    @apply btn bg-steel-900 text-white hover:bg-steel-800 hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .surface {
+    @apply bg-white rounded-2xl border border-steel-200/80 shadow-card;
+  }
+}
+
+/* 3D flip card */
+.flip-card {
+  perspective: 1600px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
+/* subtle scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-steel-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-steel-400;
+}

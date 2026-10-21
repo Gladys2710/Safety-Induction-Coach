@@ -47,7 +47,7 @@ export default function App() {
     [cards, reviews],
   );
   const seenIds = useMemo(
-    () => new Set(reviews.filter((r) => r.mode === 'study').map((r) => r.card_id)),
+    () => new Set(reviews.map((r) => r.card_id)),
     [reviews],
   );
   const progress = useMemo(

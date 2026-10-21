@@ -90,13 +90,18 @@ export function Welcome({ onSignIn }: WelcomeProps) {
                   id="worker-name"
                   type="text"
                   autoComplete="name"
+                  maxLength={60}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Jordan Rivera"
-                  className="w-full rounded-xl border border-steel-200 bg-steel-50 px-4 py-3 text-base text-steel-900 placeholder-steel-400 outline-none transition focus:border-safety-400 focus:bg-white focus:ring-2 focus:ring-safety-200"
+                  aria-invalid={Boolean(error)}
+                  aria-describedby={error ? 'worker-name-error' : undefined}
+                  className="w-full rounded-xl border border-steel-200 bg-steel-50 px-4 py-3 text-base text-steel-900 placeholder-steel-400 outline-none transition focus:border-safety-500 focus:bg-white focus:ring-2 focus:ring-safety-200"
                 />
                 {error && (
-                  <p className="mt-2 text-sm font-medium text-red-600">{error}</p>
+                  <p id="worker-name-error" className="mt-2 text-sm font-semibold text-red-600" role="alert">
+                    {error}
+                  </p>
                 )}
               </div>
               <button

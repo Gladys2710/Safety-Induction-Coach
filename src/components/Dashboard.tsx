@@ -83,7 +83,7 @@ export function Dashboard({
           <h3 className="font-display text-lg font-bold uppercase tracking-tight text-steel-900">
             Topics
           </h3>
-          <p className="text-xs font-medium uppercase tracking-wider text-steel-400">
+          <p className="text-xs font-semibold uppercase tracking-wider text-steel-600">
             {progress.length} categories
           </p>
         </div>
@@ -96,13 +96,13 @@ export function Dashboard({
                   <span className="text-sm font-semibold text-steel-800">
                     {p.category}
                   </span>
-                  <span className="text-xs font-medium text-steel-500">
+                  <span className="text-xs font-semibold text-steel-600">
                     {p.mastered}/{p.total} mastered · {p.seen} seen
                   </span>
                 </div>
-                <div className="h-2.5 w-full overflow-hidden rounded-full bg-steel-100">
+                <div className="h-2.5 w-full overflow-hidden rounded-full bg-steel-200">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-safety-400 to-safety-600 transition-all duration-500"
+                    className="h-full rounded-full bg-gradient-to-r from-safety-500 to-safety-700 transition-all duration-500"
                     style={{ width: `${masteredPctCat}%` }}
                   />
                 </div>
@@ -117,10 +117,10 @@ export function Dashboard({
 
 type Tone = 'steel' | 'green' | 'amber' | 'safety';
 const toneMap: Record<Tone, { bg: string; text: string }> = {
-  steel: { bg: 'bg-steel-100', text: 'text-steel-700' },
-  green: { bg: 'bg-emerald-100', text: 'text-emerald-700' },
-  amber: { bg: 'bg-amber-100', text: 'text-amber-700' },
-  safety: { bg: 'bg-safety-100', text: 'text-safety-700' },
+  steel: { bg: 'bg-steel-100', text: 'text-steel-800' },
+  green: { bg: 'bg-emerald-100', text: 'text-emerald-800' },
+  amber: { bg: 'bg-amber-100', text: 'text-amber-800' },
+  safety: { bg: 'bg-safety-100', text: 'text-safety-800' },
 };
 
 function StatCard({
@@ -143,12 +143,12 @@ function StatCard({
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0">
-        <p className="truncate text-[11px] font-semibold uppercase tracking-wider text-steel-400">
+        <p className="truncate text-[11px] font-semibold uppercase tracking-wider text-steel-600">
           {label}
         </p>
         <p className="text-xl font-bold text-steel-900">
           {value}
-          {sub && <span className="ml-1 text-sm font-semibold text-steel-400">{sub}</span>}
+          {sub && <span className="ml-1 text-sm font-semibold text-steel-600">{sub}</span>}
         </p>
       </div>
     </div>

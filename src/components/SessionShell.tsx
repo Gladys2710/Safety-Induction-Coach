@@ -65,17 +65,21 @@ export function SessionShell({
     );
   }
 
-  const progress = ((index) / cards.length) * 100;
+  const progress = cards.length ? ((index + 1) / cards.length) * 100 : 0;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
       <div className="mb-6 flex items-center justify-between">
-        <button onClick={onExit} className="btn-ghost !px-3 !py-2 text-sm">
+        <button
+          onClick={onExit}
+          className="btn-ghost !px-3 !py-2 text-sm"
+          aria-label="Exit session and return to dashboard"
+        >
           <ChevronLeft className="h-4 w-4" />
           Exit
         </button>
         <div className="flex items-center gap-2 text-steel-700">
-          <GraduationCap className="h-5 w-5 text-safety-500" />
+          <GraduationCap className="h-5 w-5 text-safety-600" />
           <span className="font-display text-sm font-bold uppercase tracking-tight">
             {title}
           </span>
@@ -84,13 +88,13 @@ export function SessionShell({
       </div>
 
       <div className="mb-8">
-        <div className="mb-1.5 flex items-center justify-between text-xs font-medium text-steel-500">
+        <div className="mb-1.5 flex items-center justify-between text-xs font-semibold text-steel-600">
           <span>{subtitle}</span>
           <span>{Math.round(progress)}%</span>
         </div>
-        <div className="h-2 w-full overflow-hidden rounded-full bg-steel-100">
+        <div className="h-2 w-full overflow-hidden rounded-full bg-steel-200">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-safety-400 to-safety-600 transition-all duration-500"
+            className="h-full rounded-full bg-gradient-to-r from-safety-500 to-safety-700 transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
